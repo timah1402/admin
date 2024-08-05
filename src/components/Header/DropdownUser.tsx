@@ -1,9 +1,14 @@
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ClickOutside from "@/components/ClickOutside";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const DropdownUser = () => {
+  const { data: session } = useSession();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
@@ -17,7 +22,9 @@ const DropdownUser = () => {
           <span className="block text-sm font-medium text-black dark:text-white">
             Fatoumata Diouf
           </span>
-          <span className="block text-xs">Web Developer</span>
+          <span className="block text-xs">
+            {session?.user?.email ? session.user.email : "Not Logged In"}
+          </span>
         </span>
 
         <div className="h-12 w-12 rounded-full">
