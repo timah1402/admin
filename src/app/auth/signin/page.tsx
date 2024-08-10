@@ -1,20 +1,17 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
-
-export const metadata: Metadata = {
-  title: "Next.js SignIn Page | TailAdmin - Next.js Dashboard Template",
-  description: "This is Next.js Signin Page TailAdmin Dashboard Template",
-};
+import {
+  GithubLoginButton,
+  GoogleLoginButton,
+} from "react-social-login-buttons";
+import { signIn } from "next-auth/react";
 
 const SignIn: React.FC = () => {
   return (
-    <DefaultLayout>
-      <Breadcrumb pageName="Sign In" />
-
+    <div className="flex min-h-screen w-full items-center justify-center">
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
@@ -255,11 +252,24 @@ const SignIn: React.FC = () => {
                   </p>
                 </div>
               </form>
+
+              <div className="mx-auto my-4 h-px w-1/2 bg-slate-400 dark:bg-slate-400" />
+
+              <div className="flex w-full flex-col items-center gap-4 lg:flex-row">
+                <GithubLoginButton
+                  text="Github"
+                  onClick={() => signIn("github")}
+                />
+                <GoogleLoginButton
+                  text="Google"
+                  onClick={() => signIn("google")}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </div>
   );
 };
 
