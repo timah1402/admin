@@ -24,8 +24,30 @@ const handler = NextAuth({
   },
 
   callbacks: {
-    // use callback to capture user data from provider and save it to database
-    // ... custom implementation
+    async signIn({ user, account, profile, email, credentials }) {
+      const data = {
+        name: user.name,
+        email: user.email,
+        image: user.image,
+        account: account?.provider,
+      };
+
+      console.log(data);
+
+      return true;
+    },
+
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
+
+    async session({ session, user, token }) {
+      return session;
+    },
+
+    async jwt({ token, user, account, profile }) {
+      return token;
+    },
   },
 });
 
