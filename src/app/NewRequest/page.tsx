@@ -1,6 +1,3 @@
-import DRItem from "@/components/pageContent/DRItem";
-import NRResults from "/Users/mac/Downloads/free-nextjs-admin-dashboard-main/src/components/NRResults.jsx";
-import PageContent from "@/components/pageContent/PageContent";
 import React from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
