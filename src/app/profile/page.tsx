@@ -145,7 +145,7 @@ const Profile = () => {
                   About Me
                 </h4>
                 <p className="mt-4.5">
-                  I'm a computer science student at Daust, passionate about
+                  I am a computer science student at Daust, passionate about
                   coding and technology. I love solving problems and exploring
                   new tech trends. Excited to contribute to the tech community!
                 </p>
